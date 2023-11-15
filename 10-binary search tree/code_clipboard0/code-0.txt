@@ -1,0 +1,81 @@
+class Node {
+	private int element;
+	
+	private Node left;
+	
+	private Node right;
+
+	public Node(int element) {
+		this.element = element;
+		this.left = null;
+		this.right = null;
+	}
+
+	public int getElement() {
+		return this.element;
+	}
+
+	public Node getLeft() {
+		return this.left;
+	}
+
+	public void setLeft(Node left) {
+		this.left = left;
+	}
+
+	public Node getRight() {
+		return this.right;
+	}
+
+	public void setRight(Node right) {
+		this.right = right;
+	}
+}
+
+public class BST {
+	private Node root;
+
+	public BST() {
+	}
+
+	public Node getRoot() {
+		return root;
+	}
+
+	public void insert(int element) {
+		root = insertRec(root, element);
+	}
+
+	private Node insertRec(Node root, int element) {
+		if (root == null) {
+			root = new Node(element);
+			return root;
+		}
+
+		if (element < root.getElement()) {
+			root.setLeft(insertRec(root.getLeft(), element));
+		} else {
+			root.setRight(insertRec(root.getRight(), element));
+		}
+		return root;
+	} 
+
+	private void print(Node root) {
+		if (root != null) {
+			print(root.getLeft());
+			System.out.println(root.getElement());
+			print(root.getRight());
+		}
+	}
+
+	public static void main(String args[]) {
+		BST bst = new BST();
+		bst.insert(5);
+		bst.insert(3);
+		bst.insert(6);
+		bst.insert(2);
+		bst.insert(1);
+
+		bst.print(bst.getRoot());
+	}
+}

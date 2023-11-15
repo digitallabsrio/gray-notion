@@ -1,0 +1,28 @@
+import java.util.HashMap;
+import java.util.*;
+
+class MyClass {
+  public static void main(String args[]) {
+    HashMap<String, Integer> vals = new HashMap<>();
+    System.out.println("Initial map:" + vals);
+    
+    vals.put("First value", 1);
+    vals.put("Second value", 2);
+    vals.put("Third value", 3);
+
+    System.out.println("Updated map: " + vals);
+
+    vals.remove("Second value");
+
+    System.out.println("Updated map: " + vals);
+
+    vals.put("Fourth value", 4);
+    System.out.println("Updated map: " + vals);
+
+    System.out.println("The size of map is: " + vals.size());
+
+    System.out.println("Second value exists in the map: " + vals.containsValue(2));
+    System.out.println("Third value exists in the map: " + vals.containsValue(3));
+
+  }
+}
